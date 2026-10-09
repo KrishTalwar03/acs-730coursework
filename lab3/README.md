@@ -1,8 +1,6 @@
 # Lab 3
 
-Instructions for this section will be provided in class and on Blackboard when we reach it.
 
-Put your work for Lab 3 in this folder.
 
 ## Credential model
 
@@ -37,3 +35,20 @@ To read the greeting from AWS:
 
     aws ssm get-parameter --name /acs730/lab3/greeting \
       --query 'Parameter.Value' --output text
+## Experiments
+
+### 1. Refreshing temporary AWS credentials
+
+**Prediction:** If the GitHub Actions credentials cannot access the S3 state bucket, Terraform will fail to initialize. Refreshing the credentials from an active Vocareum session should restore access.
+
+**Observed:** My first attempt failed with an S3 `403 Forbidden` error. After I ran the credential refresh script, I reran the workflow and it succeeded.
+
+**Explanation:** Terraform needs AWS credentials to read the remote state in S3. Refreshing updated the GitHub repository credentials; the `403` message did not identify the exact cause of the access failure.
+
+### 2. Migrating the Terraform state backend
+
+**Prediction:** Removing the S3 backend configuration and running `terraform init -migrate-state` should copy the existing state to a local file without changing the AWS resource.
+
+**Observed:** Terraform prompted me to copy the state from S3 to the local backend, and `terraform state list` showed `aws_ssm_parameter.lab3`. I restored the S3 backend configuration, reinitialized Terraform, confirmed the resource was still listed, and removed the local state files.
+
+**Explanation:** The backend determines where Terraform stores state. This experiment moved the state between storage locations; I did not run `plan` or `apply`, so it made no infrastructure changes.
