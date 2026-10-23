@@ -4,3 +4,11 @@
 .terraform/
 .env
 credentials
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Lab evidence and local files
+.DS_Store
