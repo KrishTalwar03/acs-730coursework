@@ -4,7 +4,7 @@ from app import app
 def test_index_returns_200():
     r = app.test_client().get("/")
     assert r.status_code == 200
-    assert b"ACS730 Lab 4" in r.data
+    assert b"THIS SHOULD FAIL" in r.data
 
 
 def test_healthz_reports_ok():
