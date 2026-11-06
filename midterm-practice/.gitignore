@@ -6,3 +6,11 @@ __pycache__/
 # Editors
 .vscode/
 .idea/
+
+.terraform/
+
+*.tfstate
+
+*.tfstate.*
+
+tfplan
