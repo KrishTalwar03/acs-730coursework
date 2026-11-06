@@ -4,8 +4,11 @@ name: Midterm Practice CI
 
 on:
   push:
-    branches: [main]
+    paths:
+      - 'midterm-practice/**'
   pull_request:
+    paths:
+      - 'midterm-practice/**'
 
 permissions:
   contents: read
@@ -44,7 +47,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the image
-        run: docker build -t "$IMAGE" midterm-practice/app
+        run: docker build -t "$IMAGE" midterm-practice
 
       - name: Fail the build if the image runs as root
         run: |
