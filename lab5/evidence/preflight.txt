@@ -1,0 +1,15 @@
+
+Checking lab5
+
+Required files
+  PASS  lab5/README.md
+
+Mechanical checks
+  PASS  terraform validate (lab5)
+
+Repository hygiene
+  PASS  no .pem, credentials or .tfstate in git history
+  PASS  .gitignore covers *.pem
+
+Summary for lab5:  4 pass, 0 fail, 0 missing
+
