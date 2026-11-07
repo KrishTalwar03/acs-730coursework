@@ -12,3 +12,8 @@ __pycache__/
 
 # Lab evidence and local files
 .DS_Store
+
+*.tfstate.*
+tfplan
+*.tfplan
+crash.log
