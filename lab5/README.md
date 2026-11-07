@@ -56,8 +56,10 @@ check belongs after merge or on a schedule, rather than on every pull request.
 Prediction: overriding `create_artifact_bucket=false` will destroy only the
 bucket and make its output null; the web and network resources will remain.
 The plan, apply and output evidence are saved under `evidence/experiment-bucket-*`.
-The console expression `one(aws_s3_bucket.artifacts[*].bucket)` checks the null
-value directly, because Terraform omits null outputs from its saved outputs.
+Observed: the plan showed 0 to add, 0 to change and 1 to destroy; apply
+destroyed only the bucket. Terraform omitted `artifact_bucket` from its saved
+JSON outputs, as expected for null. The console resource expression reported
+`(known after apply)` in this run, so it was not used as proof of null.
 The input is restored to true afterward. Using `[0]` instead of `one(...)`
 would cause an invalid-index error when the list is empty.
 
@@ -66,7 +68,8 @@ would cause an invalid-index error when the list is empty.
 Prediction: removing the explicit route-association dependency after apply
 will produce no resource changes, because it changes creation order rather
 than a resource attribute. The actual plan is saved in
-`evidence/experiment-without-depends-on-plan.txt`; the dependency is restored.
+`evidence/experiment-without-depends-on-plan.txt`; it reported "No changes."
+The dependency is restored.
 Subnet and security-group references do not imply that route associations
 must exist before the instance starts. Without the explicit edge, first-boot
 package installation can run before internet routing exists. LocalStack cannot
