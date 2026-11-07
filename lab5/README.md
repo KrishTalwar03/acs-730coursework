@@ -55,7 +55,6 @@ check belongs after merge or on a schedule, rather than on every pull request.
 
 Prediction: overriding `create_artifact_bucket=false` will destroy only the
 bucket and make its output null; the web and network resources will remain.
-The plan, apply and output evidence are saved under `evidence/experiment-bucket-*`.
 Observed: the plan showed 0 to add, 0 to change and 1 to destroy; apply
 destroyed only the bucket. Terraform omitted `artifact_bucket` from its saved
 JSON outputs, as expected for null. The console resource expression reported
@@ -67,8 +66,7 @@ would cause an invalid-index error when the list is empty.
 
 Prediction: removing the explicit route-association dependency after apply
 will produce no resource changes, because it changes creation order rather
-than a resource attribute. The actual plan is saved in
-`evidence/experiment-without-depends-on-plan.txt`; it reported "No changes."
+than a resource attribute. The actual plan reported "No changes."
 The dependency is restored.
 Subnet and security-group references do not imply that route associations
 must exist before the instance starts. Without the explicit edge, first-boot
@@ -102,10 +100,23 @@ LocalStack's default VPC can remain after destroy; the lab's `10.42.0.0/16`
 must be absent. Never commit `.terraform/`, state, saved plans or private keys.
 Commit `.terraform.lock.hcl`.
 
-## One screenshot and supporting evidence
+## Verification results
+
+Terraform formatting and validation passed. LocalStack apply created all 10
+resources; destroy removed all 10. The lab VPC CIDR `10.42.0.0/16` was absent
+after teardown, and a real AWS query found no VPCs tagged `Lab=lab5`.
+The course preflight reported 4 pass, 0 fail and 0 missing.
+
+The initial Lab 5 CI run passed. A deliberate `var.vpc_cdir` typo then caused
+validation to fail and the LocalStack job to be skipped. After both checks
+were required on `main`, GitHub reported the PR as BLOCKED. Restoring
+`var.vpc_cidr` made both Lab 5 jobs pass again.
+
+## One screenshot
 
 Use exactly one screenshot: the deliberate-failure pull request showing a
 failed `fmt and validate` check, skipped LocalStack job, and disabled merge
 button due to required checks. Save it as `evidence/required-check-blocked.png`.
-The text/JSON evidence records the successful run, deliberate failure,
-post-fix checks, two experiments and VPC teardown without extra screenshots.
+Only the single screenshot belongs in `evidence/`; no generated JSON or log
+files are included. The verification results and experiments are summarized
+above.

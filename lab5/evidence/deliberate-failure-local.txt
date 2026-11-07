@@ -1,8 +1,0 @@
-
-Error: Reference to undeclared input variable
-
-  on network.tf line 23, in resource "aws_vpc" "main":
-  23:   cidr_block           = var.vpc_cdir
-
-An input variable with the name "vpc_cdir" has not been declared. Did you
-mean "vpc_cidr"?

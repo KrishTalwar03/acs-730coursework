@@ -1,3 +1,0 @@
-completed	success	Lab 5: Terraform network with gated LocalStack CI	lab5-ci	lab5	pull_request	42323751750	2m0s	2026-11-07T01:22:47Z
-completed	failure	Lab 5: Terraform network with gated LocalStack CI	lab5-ci	lab5	pull_request	42323458701	20s	2026-11-07T01:19:43Z
-completed	success	Lab 5: Terraform network with gated LocalStack CI	lab5-ci	lab5	pull_request	42323061654	2m2s	2026-11-07T01:15:24Z

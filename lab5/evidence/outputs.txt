@@ -1,9 +1,0 @@
-artifact_bucket = "acs730-lab5-ktalwar3-artifacts"
-provider_target = "localstack (http://localhost:4566)"
-subnet_ids = {
-  "a" = "subnet-adb73e54"
-  "b" = "subnet-e7ce6a9d"
-}
-vpc_id = "vpc-f756fd57"
-web_public_ip = "54.214.73.90"
-web_url = "http://54.214.73.90/"
