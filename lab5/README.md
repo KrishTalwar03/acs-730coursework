@@ -1,7 +1,5 @@
 # Lab 5 - Terraform network and LocalStack CI
 
-Owner: `ktalwar3`. The workstation login remains `ec2-user`.
-
 ## What I built
 
 One Terraform configuration selects real AWS or LocalStack with `use_localstack`.

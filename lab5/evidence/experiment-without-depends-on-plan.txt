@@ -1,0 +1,19 @@
+data.aws_availability_zones.available: Reading...
+aws_s3_bucket.artifacts[0]: Refreshing state... [id=acs730-lab5-ktalwar3-artifacts]
+aws_vpc.main: Refreshing state... [id=vpc-f756fd57]
+data.aws_region.current: Reading...
+data.aws_region.current: Read complete after 0s [id=us-east-1]
+data.aws_availability_zones.available: Read complete after 0s [id=us-east-1]
+aws_internet_gateway.main: Refreshing state... [id=igw-1bb4229c]
+aws_security_group.web: Refreshing state... [id=sg-9424163ca3cc0678b]
+aws_subnet.public["a"]: Refreshing state... [id=subnet-adb73e54]
+aws_subnet.public["b"]: Refreshing state... [id=subnet-e7ce6a9d]
+aws_route_table.public: Refreshing state... [id=rtb-a84c6eb3]
+aws_instance.web: Refreshing state... [id=i-995d2f2f2e37d27d6]
+aws_route_table_association.public["a"]: Refreshing state... [id=rtbassoc-0be02c87]
+aws_route_table_association.public["b"]: Refreshing state... [id=rtbassoc-53919835]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

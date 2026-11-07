@@ -1,0 +1,65 @@
+{
+    "Vpcs": [
+        {
+            "OwnerId": "000000000000",
+            "InstanceTenancy": "default",
+            "Ipv6CidrBlockAssociationSet": [],
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-3ec22394",
+                    "CidrBlock": "172.31.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": true,
+            "Tags": [],
+            "VpcId": "vpc-0f0c2713",
+            "State": "available",
+            "CidrBlock": "172.31.0.0/16",
+            "DhcpOptionsId": "default"
+        },
+        {
+            "OwnerId": "000000000000",
+            "InstanceTenancy": "default",
+            "Ipv6CidrBlockAssociationSet": [],
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-3f276135",
+                    "CidrBlock": "10.42.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "acs730-lab5-ktalwar3-vpc"
+                },
+                {
+                    "Key": "Lab",
+                    "Value": "lab5"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "ktalwar3"
+                },
+                {
+                    "Key": "Course",
+                    "Value": "ACS730"
+                },
+                {
+                    "Key": "Managed",
+                    "Value": "terraform"
+                }
+            ],
+            "VpcId": "vpc-f756fd57",
+            "State": "available",
+            "CidrBlock": "10.42.0.0/16",
+            "DhcpOptionsId": "default"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+  "provider_target": {
+    "sensitive": false,
+    "type": "string",
+    "value": "localstack (http://localhost:4566)"
+  },
+  "subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "a": "string",
+        "b": "string"
+      }
+    ],
+    "value": {
+      "a": "subnet-adb73e54",
+      "b": "subnet-e7ce6a9d"
+    }
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-f756fd57"
+  },
+  "web_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "54.214.73.90"
+  },
+  "web_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://54.214.73.90/"
+  }
+}
