@@ -55,6 +55,24 @@ jobs:
       - name: terraform init
         run: terraform init -input=false
 
+      - name: Import existing Lab 6 resources into runner state
+        run: |
+          SG_ID=$(aws ec2 describe-security-groups \
+            --filters "Name=group-name,Values=acs730-lab6-sg" "Name=tag:Lab,Values=lab6" \
+            --query 'SecurityGroups[0].GroupId' --output text)
+
+          IID0=$(aws ec2 describe-instances \
+            --filters "Name=tag:Lab,Values=lab6" "Name=tag:Name,Values=acs730-lab6-web-0" "Name=instance-state-name,Values=running" \
+            --query 'Reservations[0].Instances[0].InstanceId' --output text)
+
+          IID1=$(aws ec2 describe-instances \
+            --filters "Name=tag:Lab,Values=lab6" "Name=tag:Name,Values=acs730-lab6-web-1" "Name=instance-state-name,Values=running" \
+            --query 'Reservations[0].Instances[0].InstanceId' --output text)
+
+          terraform import -input=false aws_security_group.web "$SG_ID"
+          terraform import -input=false 'aws_instance.web[0]' "$IID0"
+          terraform import -input=false 'aws_instance.web[1]' "$IID1"
+
       - name: terraform plan
         run: terraform plan -input=false
 
