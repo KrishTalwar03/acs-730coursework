@@ -2,38 +2,38 @@
 PLAY [Configure the ACS730 Lab 6 web servers] **********************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [i-0a1597c9febc1ed0b]
+ok: [i-046fa550dcf132f5b]
 ok: [i-026436c4c7e8c5220]
 
 TASK [webserver : Install the packages the application needs] ******************
-ok: [i-0a1597c9febc1ed0b]
+ok: [i-046fa550dcf132f5b]
 ok: [i-026436c4c7e8c5220]
 
 TASK [webserver : Create the unprivileged service account] *********************
-changed: [i-0a1597c9febc1ed0b]
-changed: [i-026436c4c7e8c5220]
+ok: [i-026436c4c7e8c5220]
+ok: [i-046fa550dcf132f5b]
 
 TASK [webserver : Create the application directory] ****************************
-changed: [i-026436c4c7e8c5220]
-changed: [i-0a1597c9febc1ed0b]
+ok: [i-026436c4c7e8c5220]
+ok: [i-046fa550dcf132f5b]
 
 TASK [webserver : Render the landing page from a template] *********************
+changed: [i-046fa550dcf132f5b]
 changed: [i-026436c4c7e8c5220]
-changed: [i-0a1597c9febc1ed0b]
 
 TASK [webserver : Install the systemd unit from a template] ********************
-changed: [i-0a1597c9febc1ed0b]
 changed: [i-026436c4c7e8c5220]
+changed: [i-046fa550dcf132f5b]
 
 TASK [webserver : Enable the service and make sure it is running] **************
-changed: [i-0a1597c9febc1ed0b]
-changed: [i-026436c4c7e8c5220]
+ok: [i-046fa550dcf132f5b]
+ok: [i-026436c4c7e8c5220]
 
 RUNNING HANDLER [webserver : Restart acs730-web] *******************************
 changed: [i-026436c4c7e8c5220]
-changed: [i-0a1597c9febc1ed0b]
+changed: [i-046fa550dcf132f5b]
 
 PLAY RECAP *********************************************************************
-i-026436c4c7e8c5220        : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-i-0a1597c9febc1ed0b        : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+i-026436c4c7e8c5220        : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+i-046fa550dcf132f5b        : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
