@@ -81,11 +81,19 @@ done < <(aws ec2 describe-snapshots --owner-ids self \
   --query 'Snapshots[].[SnapshotId,VolumeSize,Description]' --output text 2>/dev/null)
 
 # ---------- security groups you made ----------
+WORKSTATION_SECURITY_GROUPS="$(aws ec2 describe-instances \
+  --filters "Name=tag:Name,Values=acs730-workstation" \
+  --query 'Reservations[].Instances[].SecurityGroups[].GroupId' \
+  --output text 2>/dev/null | tr '\t' '\n')"
 hdr "Non-default security groups"
 while read -r sg sgname; do
     [ -z "${sg:-}" ] && continue
-    item "$sg  $sgname"
-    cmd "aws ec2 delete-security-group --group-id $sg"
+    if grep -Fxq "$sg" <<<"$WORKSTATION_SECURITY_GROUPS"; then
+      echo "   $sg  $sgname   (your workstation security group -- keep this)"
+    else
+      item "$sg  $sgname"
+      cmd "aws ec2 delete-security-group --group-id $sg"
+    fi
 done < <(aws ec2 describe-security-groups \
   --query 'SecurityGroups[?GroupName!=`default`].[GroupId,GroupName]' \
   --output text 2>/dev/null)
