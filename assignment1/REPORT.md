@@ -43,13 +43,13 @@ Replace `<AWS_ACCOUNT_ID>` with the account that owns the OIDC provider and role
 
 ## Application secret and observability
 
-The one-time workstation pre-step creates `/acs730/assignment1/application-secret` as a SecureString before the first Terraform plan. For the lab, use a harmless placeholder in place of `<PLACEHOLDER_VALUE>`; do not commit the real value.
+The one-time workstation pre-step creates `/acs730/assignment1/application-secret` as a SecureString before the first Terraform plan. The helper prompts for a harmless placeholder without echoing it, then runs this command; the parameter value is never committed.
 
 ```bash
 aws ssm put-parameter \
   --name /acs730/assignment1/application-secret \
   --type SecureString \
-  --value "<PLACEHOLDER_VALUE>" \
+  --value "$APP_SECRET" \
   --overwrite \
   --region us-east-1
 ```
@@ -58,7 +58,7 @@ The helper `scripts/bootstrap-assignment1-secret.sh` prompts for the value witho
 
 ## Recommendation: use an AWS-native pipeline for an AWS-only team
 
-For a team committed to AWS with no multi-cloud plans, I recommend AWS CodePipeline with CodeBuild. First, pipeline and build identities can be AWS IAM service roles, so permissions and audit records stay with the AWS account instead of bridging GitHub to AWS with stored keys. Second, CodeBuild can run in the team's VPC and reach private databases or internal services; a GitHub-hosted runner cannot reach those private addresses without extra network infrastructure. Third, AWS manages the CodeBuild environment image and its patching, while the team pays for configured build capacity and can keep build usage on the same AWS bill as its deployments. This reduces runner administration and makes VPC access straightforward. Fourth, CodePipeline can pause before production, and IAM permissions determine who may approve; this fits an AWS team's existing identity and change-control model. AWS documents [CodeBuild VPC access](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) and [manual approval actions](https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals.html).
+For a team committed to AWS with no multi-cloud plans, I recommend AWS CodePipeline with CodeBuild. First, pipeline and build identities can be AWS IAM service roles, so permissions and audit records stay with the AWS account instead of bridging GitHub to AWS with stored keys. Second, CodeBuild can run in the team's VPC and reach private databases or internal services; a GitHub-hosted runner cannot reach those private addresses without extra network infrastructure. Third, AWS manages the CodeBuild environment image, while the team pays for configured build capacity and can keep build usage on the same AWS bill as its deployments. GitHub also manages its hosted runner images, and standard Linux jobs are free for this public repository, which is a cost and maintenance advantage for the current course project. Fourth, CodePipeline can pause before production, and IAM permissions determine who may approve; this fits an AWS team's existing identity and change-control model. AWS documents [CodeBuild VPC access](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) and [manual approval actions](https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals.html); GitHub describes [Actions usage and billing](https://docs.github.com/en/actions/concepts/billing-and-usage).
 
 The practical case for GitHub Actions is strong too: this repository already uses it, developers understand pull requests, and GitHub provides environment-scoped secrets, branch controls, and approval gates. Since the repository is public, standard GitHub-hosted runner usage is free; that can be cheaper and simpler for a small course project. GitHub documents its [Actions billing rules](https://docs.github.com/en/actions/concepts/billing-and-usage) and [deployment environments](https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments). However, the team has no multi-cloud requirement, and AWS-native runner identity and private-network access outweigh keeping one familiar tool. Therefore I recommend CodePipeline and CodeBuild for this AWS-only team.
 
