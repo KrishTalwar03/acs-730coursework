@@ -21,10 +21,11 @@
 #   3. Run:  ./refresh-gha-creds.sh <github-owner>/<repo> [environment ...]
 #      and paste the block, then press Ctrl-D.
 #
-#   With no environments listed, secrets are set at REPOSITORY level
-#   (Weeks 3-7). Once Assignment 1 Task 4 moves your credentials into
-#   GitHub Environments, list the environments instead, e.g.:
+#   Assignment 1 Task 4 onward, pass the environments explicitly; the
+#   deployment workflow reads secrets only from its selected environment:
 #      ./refresh-gha-creds.sh you/your-repo staging prod
+#   Omitting environments still writes repository-level secrets for earlier
+#   course labs, but those values are not visible to protected environment jobs.
 #
 #   Add --from-file anywhere to read ~/.aws/credentials instead of pasting:
 #      ./refresh-gha-creds.sh you/your-repo staging prod --from-file

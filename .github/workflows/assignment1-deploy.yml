@@ -1,0 +1,129 @@
+name: assignment1-deploy
+
+on:
+  pull_request:
+    paths:
+      - 'assignment1/**'
+      - '.github/workflows/assignment1-deploy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assignment1/**'
+      - '!assignment1/README.md'
+      - '!assignment1/REPORT.md'
+      - '!assignment1/evidence/**'
+      - '.github/workflows/assignment1-deploy.yml'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Environment to destroy after evidence collection
+        required: true
+        type: choice
+        options: [staging, prod]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: assignment1-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Terraform format and validate
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: [dev, staging, prod]
+    defaults:
+      run:
+        working-directory: assignment1/terraform/${{ matrix.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+          terraform_wrapper: false
+      - run: terraform fmt -check -recursive ../../
+      - run: terraform init -backend=false -input=false
+      - run: terraform validate
+
+  apply-staging:
+    name: Apply staging
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: staging
+    defaults:
+      run:
+        working-directory: assignment1/terraform/staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+          terraform_wrapper: false
+      - run: aws sts get-caller-identity
+      - run: terraform init -input=false
+      - run: terraform plan -input=false -var-file=terraform.tfvars -out=tfplan
+      - run: terraform apply -input=false -auto-approve tfplan
+      - run: terraform output
+
+  apply-prod:
+    name: Apply production
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: apply-staging
+    runs-on: ubuntu-latest
+    environment: prod
+    defaults:
+      run:
+        working-directory: assignment1/terraform/prod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+          terraform_wrapper: false
+      - run: aws sts get-caller-identity
+      - run: terraform init -input=false
+      - run: terraform plan -input=false -var-file=terraform.tfvars -out=tfplan
+      - run: terraform apply -input=false -auto-approve tfplan
+      - run: terraform output
+
+  destroy:
+    name: Destroy selected environment
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target }}
+    defaults:
+      run:
+        working-directory: assignment1/terraform/${{ inputs.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+          terraform_wrapper: false
+      - run: aws sts get-caller-identity
+      - run: terraform init -input=false
+      - run: terraform destroy -input=false -auto-approve -var-file=terraform.tfvars
