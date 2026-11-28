@@ -1,0 +1,36 @@
+Assignment 1 teardown evidence
+Repository: KrishTalwar03/acs-730coursework
+AWS region: us-east-1
+
+Staging
+Workflow run: https://github.com/KrishTalwar03/acs-730coursework/actions/runs/46108299290
+Terraform result: Destroy complete! Resources: 8 destroyed.
+Resources included the assignment staging EC2 instance, CPU alarm, VPC, subnet, route table, internet gateway, route association, and security group.
+
+Production
+Workflow run: https://github.com/KrishTalwar03/acs-730coursework/actions/runs/46108301176
+Terraform result: Destroy complete! Resources: 8 destroyed.
+Resources included the assignment production EC2 instance, CPU alarm, VPC, subnet, route table, internet gateway, route association, and security group.
+
+Dev
+The dev Terraform configuration passed format and validation but was not applied, so no Assignment 1 dev resources existed to destroy.
+
+Course cleanup-check output (read-only; it deleted nothing)
+== EC2 instances
+  i-038b3af10f49fbd4e  running  t3.micro  acs730-workstation (workstation; keep)
+== Your AMIs (and their snapshots)
+  No AMIs listed.
+== Unattached EBS volumes
+  None listed.
+== Snapshots you own
+  snap-0dd13d82e6171f8ab  8GiB  Created by CreateImage(i-0633e247fb52952b4) for ami-0703fba94b4b5b681
+  Suggested command: aws ec2 delete-snapshot --snapshot-id snap-0dd13d82e6171f8ab
+== Non-default security groups
+  sg-0d8f75a2eb2d68c76  tempSG
+  Suggested command: aws ec2 delete-security-group --group-id sg-0d8f75a2eb2d68c76
+  sg-08cd37acd45fc2121  launch-wizard-2 (workstation security group; keep)
+== Terraform state files that still track resources
+  ./starter/midterm-practice/terraform/terraform.tfstate tracks 1 resource
+  ./lab5-backup-before-codex/lab5/terraform.tfstate tracks an unknown resource count
+
+Audit conclusion: the script reported remaining account resources/state outside the Assignment 1 staging and prod roots. They were not deleted because their ownership and purpose were not verified. Therefore this output does not say "Nothing left over" or "Your account is clean."
