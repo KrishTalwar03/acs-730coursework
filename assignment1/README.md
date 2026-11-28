@@ -23,8 +23,19 @@ The repository is public, so the environment protection rules do not require Git
 
 - Pull requests touching `assignment1/**` run Terraform formatting and validation only.
 - A push to `main` first applies staging automatically, then starts the `prod` job. The GitHub `prod` environment must have its required reviewer protection configured for the job to wait for approval.
+- Documentation- and evidence-only commits are excluded from deployment triggers, so committing the collected evidence after teardown will not recreate the AWS resources.
 - Both apply jobs initialize the backend with environment-specific keys: `assignment1/staging/terraform.tfstate` and `assignment1/prod/terraform.tfstate`.
 - Apply dev from the workstation with the live Academy CLI session before copying the same tested configuration through staging and prod. Run `terraform init`, `terraform plan -var-file=terraform.tfvars`, and `terraform apply -var-file=terraform.tfvars` in `assignment1/terraform/dev/`.
-- After capturing deployment evidence, destroy dev, staging, and prod. Use `terraform destroy -var-file=terraform.tfvars` in dev and the workflow's manual destroy action for staging and prod. Redirect combined output to `assignment1/evidence/destroy-complete.txt`, then run the course cleanup check and record its result in that same file. Do not delete state until destroy succeeds.
+- After capturing deployment evidence, destroy all three environments from the workstation with the same live Academy CLI session. From the repository root in Git Bash, run:
+
+  ```bash
+  : > assignment1/evidence/destroy-complete.txt
+  for env in dev staging prod; do
+    (cd "assignment1/terraform/$env" && terraform init -input=false && terraform destroy -input=false -auto-approve -var-file=terraform.tfvars) >> assignment1/evidence/destroy-complete.txt 2>&1 || exit 1
+  done
+  ./scripts/cleanup-check.sh >> assignment1/evidence/destroy-complete.txt 2>&1
+  ```
+
+  Read the cleanup-check output and preserve the workstation. Do not delete state until all destroys succeed.
 
 See `REPORT.md` and `evidence/README.md` for the trust-policy example, rationale, and the professor's exact evidence filenames. Capture the pending-production screenshot before approval and save alarm evidence only after the alarm has left `INSUFFICIENT_DATA`. The AWS Academy credential flow uses session-scoped secrets because the course account does not permit setting up AWS OIDC; the trust policy is a recommendation for a real AWS account, not an assertion that the Academy deployment used OIDC.

@@ -4,11 +4,17 @@ on:
   pull_request:
     paths:
       - 'assignment1/**'
+      - '!assignment1/README.md'
+      - '!assignment1/REPORT.md'
+      - '!assignment1/evidence/**'
       - '.github/workflows/assignment1-deploy.yml'
   push:
     branches: [main]
     paths:
       - 'assignment1/**'
+      - '!assignment1/README.md'
+      - '!assignment1/REPORT.md'
+      - '!assignment1/evidence/**'
       - '.github/workflows/assignment1-deploy.yml'
   workflow_dispatch:
     inputs:
