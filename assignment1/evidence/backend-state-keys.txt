@@ -1,0 +1,8 @@
+Terraform S3 backend configuration, region us-east-1
+Bucket: acs730-tfstate-928670087602
+
+dev:     assignment1/dev/terraform.tfstate
+staging: assignment1/staging/terraform.tfstate
+prod:    assignment1/prod/terraform.tfstate
+
+Each root uses an independent key and S3 lockfile. Staging and prod initialized and applied, then were destroyed. Dev passed format and validation but was not applied.

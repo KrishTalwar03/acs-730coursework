@@ -1,0 +1,32 @@
+{
+  "source": "AWS CloudWatch Alarms console screenshot captured 2026-11-27 23:24 America/New_York",
+  "region": "us-east-1",
+  "alarms": [
+    {
+      "alarmName": "acs730-a1-staging-ktalwar3-high-cpu",
+      "stateValue": "OK",
+      "stateUpdatedAtUtc": "2026-11-28T04:17:08Z",
+      "namespace": "AWS/EC2",
+      "metricName": "CPUUtilization",
+      "statistic": "Average",
+      "comparisonOperator": "GreaterThanThreshold",
+      "threshold": 80,
+      "periodSeconds": 300,
+      "evaluationPeriods": 2,
+      "datapointsToAlarm": 2
+    },
+    {
+      "alarmName": "acs730-a1-prod-ktalwar3-high-cpu",
+      "stateValue": "OK",
+      "stateUpdatedAtUtc": "2026-11-28T04:18:28Z",
+      "namespace": "AWS/EC2",
+      "metricName": "CPUUtilization",
+      "statistic": "Average",
+      "comparisonOperator": "GreaterThanThreshold",
+      "threshold": 80,
+      "periodSeconds": 300,
+      "evaluationPeriods": 2,
+      "datapointsToAlarm": 2
+    }
+  ]
+}
