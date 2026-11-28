@@ -1,0 +1,34 @@
+{
+  "repository": "KrishTalwar03/acs-730coursework",
+  "configuredBy": "scripts/configure-assignment1-github.sh",
+  "environments": {
+    "dev": {
+      "created": true
+    },
+    "staging": {
+      "created": true,
+      "deployment": "automatic on push to main",
+      "environmentScopedAwsSecrets": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_SESSION_TOKEN"
+      ]
+    },
+    "prod": {
+      "created": true,
+      "requiredReviewers": [
+        "KrishTalwar03"
+      ],
+      "preventSelfReview": false,
+      "allowedDeploymentBranches": [
+        "main"
+      ],
+      "environmentScopedAwsSecrets": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_SESSION_TOKEN"
+      ]
+    }
+  },
+  "repositoryLevelAwsCredentialSecrets": "deleted after environment secrets were verified"
+}

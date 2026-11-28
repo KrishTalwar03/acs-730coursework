@@ -1,0 +1,601 @@
+﻿2026-11-28T04:14:36.6840835Z Current runner version: '2.338.2'
+2026-11-28T04:14:36.6867403Z ##[group]Runner Image Provisioner
+2026-11-28T04:14:36.6868328Z Hosted Compute Agent
+2026-11-28T04:14:36.6869069Z Version: 20261111.635
+2026-11-28T04:14:36.6869755Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-28T04:14:36.6871016Z Build Date: 2026-11-11T01:49:01Z
+2026-11-28T04:14:36.6871777Z Worker ID: {f8d1b8d6-28f9-4dc1-b5f5-fe7b6c32bccd}
+2026-11-28T04:14:36.6872623Z Region: eastus
+2026-11-28T04:14:36.6873241Z Cloud: Azure
+2026-11-28T04:14:36.6873991Z ##[endgroup]
+2026-11-28T04:14:36.6875974Z ##[group]Operating System
+2026-11-28T04:14:36.6876688Z Ubuntu
+2026-11-28T04:14:36.6877260Z 26.04.1
+2026-11-28T04:14:36.6877854Z LTS
+2026-11-28T04:14:36.6878509Z ##[endgroup]
+2026-11-28T04:14:36.6879112Z ##[group]Runner Image
+2026-11-28T04:14:36.6879840Z Image: ubuntu-26.04
+2026-11-28T04:14:36.6880462Z Version: 20261122.9.1
+2026-11-28T04:14:36.6881845Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261122.9/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-28T04:14:36.6883747Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261122.9
+2026-11-28T04:14:36.6884910Z ##[endgroup]
+2026-11-28T04:14:36.6886067Z ##[group]GITHUB_TOKEN Permissions
+2026-11-28T04:14:36.6888424Z Contents: read
+2026-11-28T04:14:36.6889080Z Metadata: read
+2026-11-28T04:14:36.6889792Z ##[endgroup]
+2026-11-28T04:14:36.6891971Z Secret source: Actions
+2026-11-28T04:14:36.6893133Z Cache mode: write
+2026-11-28T04:14:36.6894602Z Prepare workflow directory
+2026-11-28T04:14:36.7307292Z Prepare all required actions
+2026-11-28T04:14:36.7357800Z Getting action download info
+2026-11-28T04:14:36.9242620Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-28T04:14:37.0210517Z Download action repository 'aws-actions/configure-aws-credentials@v4' (SHA:7474bc4690e29a8392af63c5b98e7449536d5c3a)
+2026-11-28T04:14:37.1538146Z Download action repository 'hashicorp/setup-terraform@v3' (SHA:b9cd54a3c349d3f38e8881555d616ced269862dd)
+2026-11-28T04:14:37.3642912Z Complete job name: Apply staging
+2026-11-28T04:14:37.4567442Z ##[group]Run actions/checkout@v4
+2026-11-28T04:14:37.4568507Z with:
+2026-11-28T04:14:37.4569031Z   repository: KrishTalwar03/acs-730coursework
+2026-11-28T04:14:37.4572727Z   token: ***
+2026-11-28T04:14:37.4573242Z   ssh-strict: true
+2026-11-28T04:14:37.4573888Z   ssh-user: git
+2026-11-28T04:14:37.4574389Z   persist-credentials: true
+2026-11-28T04:14:37.4574919Z   clean: true
+2026-11-28T04:14:37.4575421Z   sparse-checkout-cone-mode: true
+2026-11-28T04:14:37.4575984Z   fetch-depth: 1
+2026-11-28T04:14:37.4576453Z   fetch-tags: false
+2026-11-28T04:14:37.4576939Z   show-progress: true
+2026-11-28T04:14:37.4577530Z   lfs: false
+2026-11-28T04:14:37.4577979Z   submodules: false
+2026-11-28T04:14:37.4578464Z   set-safe-directory: true
+2026-11-28T04:14:37.4579017Z   allow-unsafe-pr-checkout: false
+2026-11-28T04:14:37.4579831Z ##[endgroup]
+2026-11-28T04:14:37.7843577Z Syncing repository: KrishTalwar03/acs-730coursework
+2026-11-28T04:14:37.7847196Z ##[group]Getting Git version info
+2026-11-28T04:14:37.7849113Z Working directory is '/home/runner/work/acs-730coursework/acs-730coursework'
+2026-11-28T04:14:37.7851715Z [command]/usr/bin/git version
+2026-11-28T04:14:37.7853046Z git version 2.56.1
+2026-11-28T04:14:37.7857019Z ##[endgroup]
+2026-11-28T04:14:37.7865706Z Temporarily overriding HOME='/home/runner/work/_temp/e1e731b4-13e5-479d-b0c3-ca0a99ec7b12' before making global git config changes
+2026-11-28T04:14:37.7868650Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-28T04:14:37.7871791Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/acs-730coursework/acs-730coursework
+2026-11-28T04:14:37.7997950Z Deleting the contents of '/home/runner/work/acs-730coursework/acs-730coursework'
+2026-11-28T04:14:37.8001443Z ##[group]Initializing the repository
+2026-11-28T04:14:37.8008923Z [command]/usr/bin/git init /home/runner/work/acs-730coursework/acs-730coursework
+2026-11-28T04:14:37.8158730Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-28T04:14:37.8161311Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-28T04:14:37.8164175Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-28T04:14:37.8165974Z hint: call:
+2026-11-28T04:14:37.8167570Z hint:
+2026-11-28T04:14:37.8168993Z hint: 	git config --global init.defaultBranch <name>
+2026-11-28T04:14:37.8170506Z hint:
+2026-11-28T04:14:37.8178759Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-28T04:14:37.8182167Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-28T04:14:37.8184985Z hint:
+2026-11-28T04:14:37.8186360Z hint: 	git branch -m <name>
+2026-11-28T04:14:37.8187701Z hint:
+2026-11-28T04:14:37.8189361Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-28T04:14:37.8192440Z Initialized empty Git repository in /home/runner/work/acs-730coursework/acs-730coursework/.git/
+2026-11-28T04:14:37.8198294Z [command]/usr/bin/git remote add origin https://github.com/KrishTalwar03/acs-730coursework
+2026-11-28T04:14:37.8296073Z ##[endgroup]
+2026-11-28T04:14:37.8297257Z ##[group]Disabling automatic garbage collection
+2026-11-28T04:14:37.8301340Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-28T04:14:37.8351213Z ##[endgroup]
+2026-11-28T04:14:37.8352753Z ##[group]Setting up auth
+2026-11-28T04:14:37.8359671Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-28T04:14:37.8401683Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-28T04:14:37.8936422Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-28T04:14:37.8979099Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-28T04:14:37.9268576Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-28T04:14:37.9305976Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-28T04:14:37.9582547Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-28T04:14:37.9625090Z ##[endgroup]
+2026-11-28T04:14:37.9626216Z ##[group]Fetching the repository
+2026-11-28T04:14:37.9634709Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +346301350ecd07c0f7f7036feb934947fe9f1280:refs/remotes/origin/main
+2026-11-28T04:14:38.2162384Z From https://github.com/KrishTalwar03/acs-730coursework
+2026-11-28T04:14:38.2164434Z  * [new ref]         346301350ecd07c0f7f7036feb934947fe9f1280 -> origin/main
+2026-11-28T04:14:38.2168775Z ##[endgroup]
+2026-11-28T04:14:38.2170459Z ##[group]Determining the checkout info
+2026-11-28T04:14:38.2172936Z ##[endgroup]
+2026-11-28T04:14:38.2180233Z [command]/usr/bin/git sparse-checkout disable
+2026-11-28T04:14:38.2239328Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-28T04:14:38.2271673Z ##[group]Checking out the ref
+2026-11-28T04:14:38.2276175Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-28T04:14:38.2507796Z Switched to a new branch 'main'
+2026-11-28T04:14:38.2512484Z branch 'main' set up to track 'origin/main'.
+2026-11-28T04:14:38.2522127Z ##[endgroup]
+2026-11-28T04:14:38.2572303Z [command]/usr/bin/git log -1 --format=%H
+2026-11-28T04:14:38.2599299Z 346301350ecd07c0f7f7036feb934947fe9f1280
+2026-11-28T04:14:38.3131984Z ##[group]Run aws-actions/configure-aws-credentials@v4
+2026-11-28T04:14:38.3133699Z with:
+2026-11-28T04:14:38.3134979Z   aws-access-key-id: ***
+2026-11-28T04:14:38.3136908Z   aws-secret-access-key: ***
+2026-11-28T04:14:38.3152638Z   aws-session-token: ***
+2026-11-28T04:14:38.3153905Z   aws-region: us-east-1
+2026-11-28T04:14:38.3155068Z   audience: sts.amazonaws.com
+2026-11-28T04:14:38.3156322Z   output-env-credentials: true
+2026-11-28T04:14:38.3157522Z ##[endgroup]
+2026-11-28T04:14:38.5106234Z Proceeding with IAM user credentials
+2026-11-28T04:14:38.5400658Z ##[group]Run hashicorp/setup-terraform@v3
+2026-11-28T04:14:38.5401971Z with:
+2026-11-28T04:14:38.5402876Z   terraform_version: 1.10.3
+2026-11-28T04:14:38.5404460Z   terraform_wrapper: false
+2026-11-28T04:14:38.5405718Z   cli_config_credentials_hostname: app.terraform.io
+2026-11-28T04:14:38.5407077Z env:
+2026-11-28T04:14:38.5407975Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:14:38.5409098Z   AWS_REGION: us-east-1
+2026-11-28T04:14:38.5410320Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:14:38.5411800Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:14:38.5426632Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:14:38.5427732Z ##[endgroup]
+2026-11-28T04:14:38.6851094Z (node:2432) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-28T04:14:38.6856314Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-28T04:14:39.0489323Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/a63f595b-ca55-4608-818d-2dce57b4ee7b
+2026-11-28T04:14:39.6512902Z ##[group]Run aws sts get-caller-identity
+2026-11-28T04:14:39.6513660Z [36;1maws sts get-caller-identity[0m
+2026-11-28T04:14:39.6553696Z shell: /usr/bin/bash -e {0}
+2026-11-28T04:14:39.6554041Z env:
+2026-11-28T04:14:39.6554319Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:14:39.6554636Z   AWS_REGION: us-east-1
+2026-11-28T04:14:39.6555102Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:14:39.6555527Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:14:39.6559076Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:14:39.6559413Z ##[endgroup]
+2026-11-28T04:14:45.2439681Z {
+2026-11-28T04:14:45.2440684Z     "UserId": "AROA5QOIM7GZJPS4Y6JKV:user5412357=ktalwar3@myseneca.ca",
+2026-11-28T04:14:45.2441449Z     "Account": "928670087602",
+2026-11-28T04:14:45.2447684Z     "Arn": "arn:aws:sts::928670087602:assumed-role/voclabs/user5412357=ktalwar3@myseneca.ca"
+2026-11-28T04:14:45.2448480Z }
+2026-11-28T04:14:45.3289031Z ##[group]Run terraform init -input=false
+2026-11-28T04:14:45.3289448Z [36;1mterraform init -input=false[0m
+2026-11-28T04:14:45.3323066Z shell: /usr/bin/bash -e {0}
+2026-11-28T04:14:45.3323599Z env:
+2026-11-28T04:14:45.3323880Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:14:45.3324158Z   AWS_REGION: us-east-1
+2026-11-28T04:14:45.3324541Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:14:45.3324908Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:14:45.3328336Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:14:45.3328590Z ##[endgroup]
+2026-11-28T04:14:45.3896521Z [0m[1mInitializing the backend...[0m
+2026-11-28T04:14:45.5463780Z [0m[32m
+2026-11-28T04:14:45.5464353Z Successfully configured the backend "s3"! Terraform will automatically
+2026-11-28T04:14:45.5465016Z use this backend unless the backend configuration changes.[0m
+2026-11-28T04:14:45.5833098Z [0m[1mInitializing modules...[0m
+2026-11-28T04:14:45.5863958Z - web_stack in ../modules/web_stack
+2026-11-28T04:14:45.5879180Z [0m[1mInitializing provider plugins...[0m
+2026-11-28T04:14:45.5879964Z - Reusing previous version of hashicorp/aws from the dependency lock file
+2026-11-28T04:14:45.6802372Z - Installing hashicorp/aws v5.100.0...
+2026-11-28T04:14:52.4669354Z - Installed hashicorp/aws v5.100.0 (signed by HashiCorp)
+2026-11-28T04:14:52.4670344Z Terraform has made some changes to the provider dependency selections recorded
+2026-11-28T04:14:52.4671334Z in the .terraform.lock.hcl file. Review those changes and commit them to your
+2026-11-28T04:14:52.4672170Z version control system if they represent changes you intended to make.
+2026-11-28T04:14:52.4677578Z 
+2026-11-28T04:14:52.4684655Z [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+2026-11-28T04:14:52.4685327Z [0m[32m
+2026-11-28T04:14:52.4685886Z You may now begin working with Terraform. Try running "terraform plan" to see
+2026-11-28T04:14:52.4686769Z any changes that are required for your infrastructure. All Terraform commands
+2026-11-28T04:14:52.4687459Z should now work.
+2026-11-28T04:14:52.4687681Z 
+2026-11-28T04:14:52.4687962Z If you ever set or change modules or backend configuration for Terraform,
+2026-11-28T04:14:52.4688505Z rerun this command to reinitialize your working directory. If you forget, other
+2026-11-28T04:14:52.4689062Z commands will detect it and remind you to do so if necessary.[0m
+2026-11-28T04:14:52.4735967Z ##[group]Run terraform plan -input=false -var-file=terraform.tfvars -out=tfplan
+2026-11-28T04:14:52.4736613Z [36;1mterraform plan -input=false -var-file=terraform.tfvars -out=tfplan[0m
+2026-11-28T04:14:52.4769700Z shell: /usr/bin/bash -e {0}
+2026-11-28T04:14:52.4769976Z env:
+2026-11-28T04:14:52.4770200Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:14:52.4770466Z   AWS_REGION: us-east-1
+2026-11-28T04:14:52.4770973Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:14:52.4771348Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:14:52.4775036Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:14:52.4775283Z ##[endgroup]
+2026-11-28T04:14:55.1733707Z [0m[1mmodule.web_stack.data.aws_availability_zones.available: Reading...[0m[0m
+2026-11-28T04:14:55.1734727Z [0m[1mmodule.web_stack.data.aws_ami.al2023: Reading...[0m[0m
+2026-11-28T04:14:55.1735697Z [0m[1mmodule.web_stack.data.aws_ssm_parameter.application_secret: Reading...[0m[0m
+2026-11-28T04:14:55.2651783Z [0m[1mmodule.web_stack.data.aws_availability_zones.available: Read complete after 0s [id=us-east-1][0m
+2026-11-28T04:14:55.2688163Z [0m[1mmodule.web_stack.data.aws_ssm_parameter.application_secret: Read complete after 0s [id=/acs730/assignment1/application-secret][0m
+2026-11-28T04:14:55.6299205Z [0m[1mmodule.web_stack.data.aws_ami.al2023: Read complete after 1s [id=ami-02771ddfb8e749b97][0m
+2026-11-28T04:14:55.8004578Z 
+2026-11-28T04:14:55.8005400Z Terraform used the selected providers to generate the following execution
+2026-11-28T04:14:55.8006524Z plan. Resource actions are indicated with the following symbols:
+2026-11-28T04:14:55.8007545Z   [32m+[0m create[0m
+2026-11-28T04:14:55.8007834Z 
+2026-11-28T04:14:55.8008095Z Terraform will perform the following actions:
+2026-11-28T04:14:55.8008535Z 
+2026-11-28T04:14:55.8009131Z [1m  # module.web_stack.aws_cloudwatch_metric_alarm.high_cpu[0m will be created
+2026-11-28T04:14:55.8010346Z [0m  [32m+[0m[0m resource "aws_cloudwatch_metric_alarm" "high_cpu" {
+2026-11-28T04:14:55.8011253Z       [32m+[0m[0m actions_enabled                       = true
+2026-11-28T04:14:55.8012553Z       [32m+[0m[0m alarm_description                     = "EC2 average CPU utilization exceeded 80% for two consecutive five-minute periods."
+2026-11-28T04:14:55.8014186Z       [32m+[0m[0m alarm_name                            = "acs730-a1-staging-ktalwar3-high-cpu"
+2026-11-28T04:14:55.8015233Z       [32m+[0m[0m arn                                   = (known after apply)
+2026-11-28T04:14:55.8016263Z       [32m+[0m[0m comparison_operator                   = "GreaterThanThreshold"
+2026-11-28T04:14:55.8017417Z       [32m+[0m[0m dimensions                            = (known after apply)
+2026-11-28T04:14:55.8018457Z       [32m+[0m[0m evaluate_low_sample_count_percentiles = (known after apply)
+2026-11-28T04:14:55.8019402Z       [32m+[0m[0m evaluation_periods                    = 2
+2026-11-28T04:14:55.8020216Z       [32m+[0m[0m id                                    = (known after apply)
+2026-11-28T04:14:55.8021135Z       [32m+[0m[0m metric_name                           = "CPUUtilization"
+2026-11-28T04:14:55.8021974Z       [32m+[0m[0m namespace                             = "AWS/EC2"
+2026-11-28T04:14:55.8022732Z       [32m+[0m[0m period                                = 300
+2026-11-28T04:14:55.8024131Z       [32m+[0m[0m statistic                             = "Average"
+2026-11-28T04:14:55.8025004Z       [32m+[0m[0m tags                                  = {
+2026-11-28T04:14:55.8025665Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8026293Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8026933Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8027562Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8028173Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8028669Z         }
+2026-11-28T04:14:55.8029171Z       [32m+[0m[0m tags_all                              = {
+2026-11-28T04:14:55.8030568Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8031413Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8032082Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8032754Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8033654Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8034177Z         }
+2026-11-28T04:14:55.8034741Z       [32m+[0m[0m threshold                             = 80
+2026-11-28T04:14:55.8035583Z       [32m+[0m[0m treat_missing_data                    = "notBreaching"
+2026-11-28T04:14:55.8036224Z     }
+2026-11-28T04:14:55.8036588Z 
+2026-11-28T04:14:55.8036991Z [1m  # module.web_stack.aws_instance.web[0m will be created
+2026-11-28T04:14:55.8037754Z [0m  [32m+[0m[0m resource "aws_instance" "web" {
+2026-11-28T04:14:55.8038542Z       [32m+[0m[0m ami                                  = "ami-02771ddfb8e749b97"
+2026-11-28T04:14:55.8039420Z       [32m+[0m[0m arn                                  = (known after apply)
+2026-11-28T04:14:55.8040347Z       [32m+[0m[0m associate_public_ip_address          = (known after apply)
+2026-11-28T04:14:55.8041300Z       [32m+[0m[0m availability_zone                    = (known after apply)
+2026-11-28T04:14:55.8042222Z       [32m+[0m[0m cpu_core_count                       = (known after apply)
+2026-11-28T04:14:55.8043138Z       [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+2026-11-28T04:14:55.8044317Z       [32m+[0m[0m disable_api_stop                     = (known after apply)
+2026-11-28T04:14:55.8045245Z       [32m+[0m[0m disable_api_termination              = (known after apply)
+2026-11-28T04:14:55.8046180Z       [32m+[0m[0m ebs_optimized                        = (known after apply)
+2026-11-28T04:14:55.8047094Z       [32m+[0m[0m enable_primary_ipv6                  = (known after apply)
+2026-11-28T04:14:55.8047983Z       [32m+[0m[0m get_password_data                    = false
+2026-11-28T04:14:55.8048850Z       [32m+[0m[0m host_id                              = (known after apply)
+2026-11-28T04:14:55.8049781Z       [32m+[0m[0m host_resource_group_arn              = (known after apply)
+2026-11-28T04:14:55.8050836Z       [32m+[0m[0m iam_instance_profile                 = (known after apply)
+2026-11-28T04:14:55.8051733Z       [32m+[0m[0m id                                   = (known after apply)
+2026-11-28T04:14:55.8052626Z       [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+2026-11-28T04:14:55.8053767Z       [32m+[0m[0m instance_lifecycle                   = (known after apply)
+2026-11-28T04:14:55.8054691Z       [32m+[0m[0m instance_state                       = (known after apply)
+2026-11-28T04:14:55.8055550Z       [32m+[0m[0m instance_type                        = "t3.micro"
+2026-11-28T04:14:55.8056438Z       [32m+[0m[0m ipv6_address_count                   = (known after apply)
+2026-11-28T04:14:55.8057431Z       [32m+[0m[0m ipv6_addresses                       = (known after apply)
+2026-11-28T04:14:55.8058334Z       [32m+[0m[0m key_name                             = (known after apply)
+2026-11-28T04:14:55.8059214Z       [32m+[0m[0m monitoring                           = (known after apply)
+2026-11-28T04:14:55.8060464Z       [32m+[0m[0m outpost_arn                          = (known after apply)
+2026-11-28T04:14:55.8061419Z       [32m+[0m[0m password_data                        = (known after apply)
+2026-11-28T04:14:55.8062366Z       [32m+[0m[0m placement_group                      = (known after apply)
+2026-11-28T04:14:55.8063646Z       [32m+[0m[0m placement_partition_number           = (known after apply)
+2026-11-28T04:14:55.8064690Z       [32m+[0m[0m primary_network_interface_id         = (known after apply)
+2026-11-28T04:14:55.8065768Z       [32m+[0m[0m private_dns                          = (known after apply)
+2026-11-28T04:14:55.8088019Z       [32m+[0m[0m private_ip                           = (known after apply)
+2026-11-28T04:14:55.8089031Z       [32m+[0m[0m public_dns                           = (known after apply)
+2026-11-28T04:14:55.8089968Z       [32m+[0m[0m public_ip                            = (known after apply)
+2026-11-28T04:14:55.8090908Z       [32m+[0m[0m secondary_private_ips                = (known after apply)
+2026-11-28T04:14:55.8091872Z       [32m+[0m[0m security_groups                      = (known after apply)
+2026-11-28T04:14:55.8092726Z       [32m+[0m[0m source_dest_check                    = true
+2026-11-28T04:14:55.8093808Z       [32m+[0m[0m spot_instance_request_id             = (known after apply)
+2026-11-28T04:14:55.8094761Z       [32m+[0m[0m subnet_id                            = (known after apply)
+2026-11-28T04:14:55.8095594Z       [32m+[0m[0m tags                                 = {
+2026-11-28T04:14:55.8096356Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8097052Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8097749Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8098459Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8099300Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-web"
+2026-11-28T04:14:55.8100114Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8100670Z         }
+2026-11-28T04:14:55.8101221Z       [32m+[0m[0m tags_all                             = {
+2026-11-28T04:14:55.8101774Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8102149Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8102508Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8102875Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8103581Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-web"
+2026-11-28T04:14:55.8104040Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8104344Z         }
+2026-11-28T04:14:55.8104691Z       [32m+[0m[0m tenancy                              = (known after apply)
+2026-11-28T04:14:55.8105261Z       [32m+[0m[0m user_data                            = "52c1896ec853d5cfae68fa4ba3b4784bca8559b3"
+2026-11-28T04:14:55.8105806Z       [32m+[0m[0m user_data_base64                     = (known after apply)
+2026-11-28T04:14:55.8106291Z       [32m+[0m[0m user_data_replace_on_change          = false
+2026-11-28T04:14:55.8106773Z       [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+2026-11-28T04:14:55.8107059Z 
+2026-11-28T04:14:55.8107295Z       [32m+[0m[0m capacity_reservation_specification (known after apply)
+2026-11-28T04:14:55.8107584Z 
+2026-11-28T04:14:55.8107749Z       [32m+[0m[0m cpu_options (known after apply)
+2026-11-28T04:14:55.8107966Z 
+2026-11-28T04:14:55.8108140Z       [32m+[0m[0m ebs_block_device (known after apply)
+2026-11-28T04:14:55.8108367Z 
+2026-11-28T04:14:55.8108538Z       [32m+[0m[0m enclave_options (known after apply)
+2026-11-28T04:14:55.8108758Z 
+2026-11-28T04:14:55.8108953Z       [32m+[0m[0m ephemeral_block_device (known after apply)
+2026-11-28T04:14:55.8109188Z 
+2026-11-28T04:14:55.8109384Z       [32m+[0m[0m instance_market_options (known after apply)
+2026-11-28T04:14:55.8109629Z 
+2026-11-28T04:14:55.8110022Z       [32m+[0m[0m maintenance_options (known after apply)
+2026-11-28T04:14:55.8110256Z 
+2026-11-28T04:14:55.8110432Z       [32m+[0m[0m metadata_options (known after apply)
+2026-11-28T04:14:55.8110655Z 
+2026-11-28T04:14:55.8110827Z       [32m+[0m[0m network_interface (known after apply)
+2026-11-28T04:14:55.8111052Z 
+2026-11-28T04:14:55.8111251Z       [32m+[0m[0m private_dns_name_options (known after apply)
+2026-11-28T04:14:55.8111495Z 
+2026-11-28T04:14:55.8111672Z       [32m+[0m[0m root_block_device (known after apply)
+2026-11-28T04:14:55.8111977Z     }
+2026-11-28T04:14:55.8112090Z 
+2026-11-28T04:14:55.8112331Z [1m  # module.web_stack.aws_internet_gateway.main[0m will be created
+2026-11-28T04:14:55.8112911Z [0m  [32m+[0m[0m resource "aws_internet_gateway" "main" {
+2026-11-28T04:14:55.8113451Z       [32m+[0m[0m arn      = (known after apply)
+2026-11-28T04:14:55.8113824Z       [32m+[0m[0m id       = (known after apply)
+2026-11-28T04:14:55.8114170Z       [32m+[0m[0m owner_id = (known after apply)
+2026-11-28T04:14:55.8114502Z       [32m+[0m[0m tags     = {
+2026-11-28T04:14:55.8114835Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8115189Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8115530Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8115934Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8116352Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-igw"
+2026-11-28T04:14:55.8116746Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8117024Z         }
+2026-11-28T04:14:55.8117250Z       [32m+[0m[0m tags_all = {
+2026-11-28T04:14:55.8117569Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8117910Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8118256Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8118597Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8118999Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-igw"
+2026-11-28T04:14:55.8119393Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8119668Z         }
+2026-11-28T04:14:55.8119929Z       [32m+[0m[0m vpc_id   = (known after apply)
+2026-11-28T04:14:55.8120218Z     }
+2026-11-28T04:14:55.8120321Z 
+2026-11-28T04:14:55.8120551Z [1m  # module.web_stack.aws_route_table.public[0m will be created
+2026-11-28T04:14:55.8121009Z [0m  [32m+[0m[0m resource "aws_route_table" "public" {
+2026-11-28T04:14:55.8121414Z       [32m+[0m[0m arn              = (known after apply)
+2026-11-28T04:14:55.8121801Z       [32m+[0m[0m id               = (known after apply)
+2026-11-28T04:14:55.8122173Z       [32m+[0m[0m owner_id         = (known after apply)
+2026-11-28T04:14:55.8122555Z       [32m+[0m[0m propagating_vgws = (known after apply)
+2026-11-28T04:14:55.8122902Z       [32m+[0m[0m route            = [
+2026-11-28T04:14:55.8123195Z           [32m+[0m[0m {
+2026-11-28T04:14:55.8123635Z               [32m+[0m[0m cidr_block                 = "0.0.0.0/0"
+2026-11-28T04:14:55.8124077Z               [32m+[0m[0m gateway_id                 = (known after apply)
+2026-11-28T04:14:55.8124564Z                 [90m# (11 unchanged attributes hidden)[0m[0m
+2026-11-28T04:14:55.8124897Z             },
+2026-11-28T04:14:55.8125093Z         ]
+2026-11-28T04:14:55.8125324Z       [32m+[0m[0m tags             = {
+2026-11-28T04:14:55.8125670Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8126019Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8126354Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8126704Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8127145Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-public-rt"
+2026-11-28T04:14:55.8127563Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8127835Z         }
+2026-11-28T04:14:55.8128207Z       [32m+[0m[0m tags_all         = {
+2026-11-28T04:14:55.8128537Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8128876Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8129214Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8129556Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8129974Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-public-rt"
+2026-11-28T04:14:55.8130388Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8130655Z         }
+2026-11-28T04:14:55.8131033Z       [32m+[0m[0m vpc_id           = (known after apply)
+2026-11-28T04:14:55.8131531Z     }
+2026-11-28T04:14:55.8131640Z 
+2026-11-28T04:14:55.8131911Z [1m  # module.web_stack.aws_route_table_association.public[0m will be created
+2026-11-28T04:14:55.8132426Z [0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+2026-11-28T04:14:55.8132864Z       [32m+[0m[0m id             = (known after apply)
+2026-11-28T04:14:55.8133241Z       [32m+[0m[0m route_table_id = (known after apply)
+2026-11-28T04:14:55.8133730Z       [32m+[0m[0m subnet_id      = (known after apply)
+2026-11-28T04:14:55.8134020Z     }
+2026-11-28T04:14:55.8134120Z 
+2026-11-28T04:14:55.8134341Z [1m  # module.web_stack.aws_security_group.web[0m will be created
+2026-11-28T04:14:55.8134774Z [0m  [32m+[0m[0m resource "aws_security_group" "web" {
+2026-11-28T04:14:55.8135185Z       [32m+[0m[0m arn                    = (known after apply)
+2026-11-28T04:14:55.8135772Z       [32m+[0m[0m description            = "HTTP web access restricted to the administrator laptop for staging"
+2026-11-28T04:14:55.8136295Z       [32m+[0m[0m egress                 = [
+2026-11-28T04:14:55.8136611Z           [32m+[0m[0m {
+2026-11-28T04:14:55.8136895Z               [32m+[0m[0m cidr_blocks      = [
+2026-11-28T04:14:55.8137224Z                   [32m+[0m[0m "0.0.0.0/0",
+2026-11-28T04:14:55.8137500Z                 ]
+2026-11-28T04:14:55.8137934Z               [32m+[0m[0m description      = "Outbound access for package installation and AWS APIs"
+2026-11-28T04:14:55.8138424Z               [32m+[0m[0m from_port        = 0
+2026-11-28T04:14:55.8138764Z               [32m+[0m[0m ipv6_cidr_blocks = []
+2026-11-28T04:14:55.8139108Z               [32m+[0m[0m prefix_list_ids  = []
+2026-11-28T04:14:55.8139454Z               [32m+[0m[0m protocol         = "-1"
+2026-11-28T04:14:55.8139798Z               [32m+[0m[0m security_groups  = []
+2026-11-28T04:14:55.8140141Z               [32m+[0m[0m self             = false
+2026-11-28T04:14:55.8140474Z               [32m+[0m[0m to_port          = 0
+2026-11-28T04:14:55.8140751Z             },
+2026-11-28T04:14:55.8140942Z         ]
+2026-11-28T04:14:55.8141227Z       [32m+[0m[0m id                     = (known after apply)
+2026-11-28T04:14:55.8141602Z       [32m+[0m[0m ingress                = [
+2026-11-28T04:14:55.8141901Z           [32m+[0m[0m {
+2026-11-28T04:14:55.8142184Z               [32m+[0m[0m cidr_blocks      = [
+2026-11-28T04:14:55.8142521Z                   [32m+[0m[0m "142.189.207.231/32",
+2026-11-28T04:14:55.8142797Z                 ]
+2026-11-28T04:14:55.8143175Z               [32m+[0m[0m description      = "HTTP from the administrator laptop"
+2026-11-28T04:14:55.8143710Z               [32m+[0m[0m from_port        = 80
+2026-11-28T04:14:55.8144045Z               [32m+[0m[0m ipv6_cidr_blocks = []
+2026-11-28T04:14:55.8144379Z               [32m+[0m[0m prefix_list_ids  = []
+2026-11-28T04:14:55.8144719Z               [32m+[0m[0m protocol         = "tcp"
+2026-11-28T04:14:55.8145061Z               [32m+[0m[0m security_groups  = []
+2026-11-28T04:14:55.8145407Z               [32m+[0m[0m self             = false
+2026-11-28T04:14:55.8145746Z               [32m+[0m[0m to_port          = 80
+2026-11-28T04:14:55.8146017Z             },
+2026-11-28T04:14:55.8146212Z         ]
+2026-11-28T04:14:55.8146540Z       [32m+[0m[0m name                   = "acs730-a1-staging-ktalwar3-web"
+2026-11-28T04:14:55.8147133Z       [32m+[0m[0m name_prefix            = (known after apply)
+2026-11-28T04:14:55.8147562Z       [32m+[0m[0m owner_id               = (known after apply)
+2026-11-28T04:14:55.8147949Z       [32m+[0m[0m revoke_rules_on_delete = false
+2026-11-28T04:14:55.8148296Z       [32m+[0m[0m tags                   = {
+2026-11-28T04:14:55.8148656Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8149006Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8149345Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8149807Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8150277Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-web-sg"
+2026-11-28T04:14:55.8150687Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8150969Z         }
+2026-11-28T04:14:55.8151223Z       [32m+[0m[0m tags_all               = {
+2026-11-28T04:14:55.8151577Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8151928Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8152268Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8152612Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8153026Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-web-sg"
+2026-11-28T04:14:55.8153550Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8153822Z         }
+2026-11-28T04:14:55.8154113Z       [32m+[0m[0m vpc_id                 = (known after apply)
+2026-11-28T04:14:55.8154429Z     }
+2026-11-28T04:14:55.8154541Z 
+2026-11-28T04:14:55.8154756Z [1m  # module.web_stack.aws_subnet.public[0m will be created
+2026-11-28T04:14:55.8155165Z [0m  [32m+[0m[0m resource "aws_subnet" "public" {
+2026-11-28T04:14:55.8155606Z       [32m+[0m[0m arn                                            = (known after apply)
+2026-11-28T04:14:55.8156105Z       [32m+[0m[0m assign_ipv6_address_on_creation                = false
+2026-11-28T04:14:55.8156608Z       [32m+[0m[0m availability_zone                              = "us-east-1a"
+2026-11-28T04:14:55.8157152Z       [32m+[0m[0m availability_zone_id                           = (known after apply)
+2026-11-28T04:14:55.8157669Z       [32m+[0m[0m cidr_block                                     = "10.52.1.0/24"
+2026-11-28T04:14:55.8158140Z       [32m+[0m[0m enable_dns64                                   = false
+2026-11-28T04:14:55.8158610Z       [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+2026-11-28T04:14:55.8159090Z       [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+2026-11-28T04:14:55.8159564Z       [32m+[0m[0m id                                             = (known after apply)
+2026-11-28T04:14:55.8160088Z       [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+2026-11-28T04:14:55.8160596Z       [32m+[0m[0m ipv6_native                                    = false
+2026-11-28T04:14:55.8161056Z       [32m+[0m[0m map_public_ip_on_launch                        = true
+2026-11-28T04:14:55.8161534Z       [32m+[0m[0m owner_id                                       = (known after apply)
+2026-11-28T04:14:55.8162068Z       [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+2026-11-28T04:14:55.8162567Z       [32m+[0m[0m tags                                           = {
+2026-11-28T04:14:55.8162959Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8163424Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8163791Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8164141Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8164559Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-public"
+2026-11-28T04:14:55.8164972Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8165384Z         }
+2026-11-28T04:14:55.8165684Z       [32m+[0m[0m tags_all                                       = {
+2026-11-28T04:14:55.8166080Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8166432Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8166767Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8167114Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8167523Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-public"
+2026-11-28T04:14:55.8167925Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8168200Z         }
+2026-11-28T04:14:55.8168646Z       [32m+[0m[0m vpc_id                                         = (known after apply)
+2026-11-28T04:14:55.8169002Z     }
+2026-11-28T04:14:55.8169111Z 
+2026-11-28T04:14:55.8169296Z [1m  # module.web_stack.aws_vpc.main[0m will be created
+2026-11-28T04:14:55.8169684Z [0m  [32m+[0m[0m resource "aws_vpc" "main" {
+2026-11-28T04:14:55.8170105Z       [32m+[0m[0m arn                                  = (known after apply)
+2026-11-28T04:14:55.8170564Z       [32m+[0m[0m cidr_block                           = "10.52.0.0/16"
+2026-11-28T04:14:55.8171051Z       [32m+[0m[0m default_network_acl_id               = (known after apply)
+2026-11-28T04:14:55.8171544Z       [32m+[0m[0m default_route_table_id               = (known after apply)
+2026-11-28T04:14:55.8172041Z       [32m+[0m[0m default_security_group_id            = (known after apply)
+2026-11-28T04:14:55.8172527Z       [32m+[0m[0m dhcp_options_id                      = (known after apply)
+2026-11-28T04:14:55.8172977Z       [32m+[0m[0m enable_dns_hostnames                 = true
+2026-11-28T04:14:55.8173506Z       [32m+[0m[0m enable_dns_support                   = true
+2026-11-28T04:14:55.8173974Z       [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+2026-11-28T04:14:55.8174444Z       [32m+[0m[0m id                                   = (known after apply)
+2026-11-28T04:14:55.8174887Z       [32m+[0m[0m instance_tenancy                     = "default"
+2026-11-28T04:14:55.8175355Z       [32m+[0m[0m ipv6_association_id                  = (known after apply)
+2026-11-28T04:14:55.8175836Z       [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+2026-11-28T04:14:55.8176329Z       [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+2026-11-28T04:14:55.8176819Z       [32m+[0m[0m main_route_table_id                  = (known after apply)
+2026-11-28T04:14:55.8177293Z       [32m+[0m[0m owner_id                             = (known after apply)
+2026-11-28T04:14:55.8177720Z       [32m+[0m[0m tags                                 = {
+2026-11-28T04:14:55.8178094Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8178441Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8178785Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8179134Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8179547Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-vpc"
+2026-11-28T04:14:55.8179956Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8180231Z         }
+2026-11-28T04:14:55.8180504Z       [32m+[0m[0m tags_all                             = {
+2026-11-28T04:14:55.8180881Z           [32m+[0m[0m "Assignment"  = "assignment1"
+2026-11-28T04:14:55.8181224Z           [32m+[0m[0m "Course"      = "ACS730"
+2026-11-28T04:14:55.8181558Z           [32m+[0m[0m "Environment" = "staging"
+2026-11-28T04:14:55.8181910Z           [32m+[0m[0m "Managed"     = "terraform"
+2026-11-28T04:14:55.8182314Z           [32m+[0m[0m "Name"        = "acs730-a1-staging-ktalwar3-vpc"
+2026-11-28T04:14:55.8182707Z           [32m+[0m[0m "Owner"       = "ktalwar3"
+2026-11-28T04:14:55.8182981Z         }
+2026-11-28T04:14:55.8183157Z     }
+2026-11-28T04:14:55.8183491Z 
+2026-11-28T04:14:55.8183657Z [1mPlan:[0m 8 to add, 0 to change, 0 to destroy.
+2026-11-28T04:14:55.8183962Z [0m
+2026-11-28T04:14:55.8184151Z Changes to Outputs:
+2026-11-28T04:14:55.8184740Z   [32m+[0m[0m application_parameter_arn = "arn:aws:ssm:us-east-1:928670087602:parameter/acs730/assignment1/application-secret"
+2026-11-28T04:14:55.8185458Z   [32m+[0m[0m cpu_alarm_name            = "acs730-a1-staging-ktalwar3-high-cpu"
+2026-11-28T04:14:55.8185939Z   [32m+[0m[0m vpc_id                    = (known after apply)
+2026-11-28T04:14:55.8186359Z   [32m+[0m[0m web_instance_id           = (known after apply)
+2026-11-28T04:14:55.8186779Z   [32m+[0m[0m web_public_ip             = (known after apply)
+2026-11-28T04:14:55.8187305Z   [32m+[0m[0m web_url                   = (known after apply)
+2026-11-28T04:14:55.8187631Z [90m
+2026-11-28T04:14:55.8188326Z ─────────────────────────────────────────────────────────────────────────────[0m
+2026-11-28T04:14:55.8188779Z 
+2026-11-28T04:14:55.8188952Z Saved the plan to: tfplan
+2026-11-28T04:14:55.8189240Z 
+2026-11-28T04:14:55.8189559Z To perform exactly these actions, run the following command to apply:
+2026-11-28T04:14:55.8190224Z     terraform apply "tfplan"
+2026-11-28T04:14:55.8758048Z ##[group]Run terraform apply -input=false -auto-approve tfplan
+2026-11-28T04:14:55.8758560Z [36;1mterraform apply -input=false -auto-approve tfplan[0m
+2026-11-28T04:14:55.8791508Z shell: /usr/bin/bash -e {0}
+2026-11-28T04:14:55.8791787Z env:
+2026-11-28T04:14:55.8792006Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:14:55.8792271Z   AWS_REGION: us-east-1
+2026-11-28T04:14:55.8792625Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:14:55.8792980Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:14:55.8796696Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:14:55.8796950Z ##[endgroup]
+2026-11-28T04:14:58.2164452Z [0m[1mmodule.web_stack.aws_vpc.main: Creating...[0m[0m
+2026-11-28T04:15:08.2168278Z [0m[1mmodule.web_stack.aws_vpc.main: Still creating... [10s elapsed][0m[0m
+2026-11-28T04:15:09.8437318Z [0m[1mmodule.web_stack.aws_vpc.main: Creation complete after 12s [id=vpc-0fa7826790f581b52][0m
+2026-11-28T04:15:09.8485059Z [0m[1mmodule.web_stack.aws_internet_gateway.main: Creating...[0m[0m
+2026-11-28T04:15:09.8486845Z [0m[1mmodule.web_stack.aws_subnet.public: Creating...[0m[0m
+2026-11-28T04:15:09.8514300Z [0m[1mmodule.web_stack.aws_security_group.web: Creating...[0m[0m
+2026-11-28T04:15:10.2421036Z [0m[1mmodule.web_stack.aws_internet_gateway.main: Creation complete after 0s [id=igw-0e3d1d69da17e2ce0][0m
+2026-11-28T04:15:10.2457916Z [0m[1mmodule.web_stack.aws_route_table.public: Creating...[0m[0m
+2026-11-28T04:15:11.0980214Z [0m[1mmodule.web_stack.aws_route_table.public: Creation complete after 1s [id=rtb-0ae9e92d244c8be95][0m
+2026-11-28T04:15:12.5112666Z [0m[1mmodule.web_stack.aws_security_group.web: Creation complete after 3s [id=sg-0f88b8323b49692b1][0m
+2026-11-28T04:15:19.8495929Z [0m[1mmodule.web_stack.aws_subnet.public: Still creating... [10s elapsed][0m[0m
+2026-11-28T04:15:20.8890798Z [0m[1mmodule.web_stack.aws_subnet.public: Creation complete after 11s [id=subnet-073776123dee490da][0m
+2026-11-28T04:15:20.8909298Z [0m[1mmodule.web_stack.aws_route_table_association.public: Creating...[0m[0m
+2026-11-28T04:15:21.1998776Z [0m[1mmodule.web_stack.aws_route_table_association.public: Creation complete after 0s [id=rtbassoc-0c058e378be8764b6][0m
+2026-11-28T04:15:21.2085017Z [0m[1mmodule.web_stack.aws_instance.web: Creating...[0m[0m
+2026-11-28T04:15:31.2092506Z [0m[1mmodule.web_stack.aws_instance.web: Still creating... [10s elapsed][0m[0m
+2026-11-28T04:15:33.9273125Z [0m[1mmodule.web_stack.aws_instance.web: Creation complete after 13s [id=i-0b0cee1b493c8d1b5][0m
+2026-11-28T04:15:34.0778849Z [0m[1mmodule.web_stack.aws_cloudwatch_metric_alarm.high_cpu: Creating...[0m[0m
+2026-11-28T04:15:34.3112715Z [0m[1mmodule.web_stack.aws_cloudwatch_metric_alarm.high_cpu: Creation complete after 0s [id=acs730-a1-staging-ktalwar3-high-cpu][0m
+2026-11-28T04:15:34.4206078Z [0m[1m[32m
+2026-11-28T04:15:34.4206557Z Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
+2026-11-28T04:15:34.4207071Z [0m[0m[1m[32m
+2026-11-28T04:15:34.4207364Z Outputs:
+2026-11-28T04:15:34.4207545Z 
+2026-11-28T04:15:34.4208103Z [0mapplication_parameter_arn = "arn:aws:ssm:us-east-1:928670087602:parameter/acs730/assignment1/application-secret"
+2026-11-28T04:15:34.4208765Z cpu_alarm_name = "acs730-a1-staging-ktalwar3-high-cpu"
+2026-11-28T04:15:34.4209143Z vpc_id = "vpc-0fa7826790f581b52"
+2026-11-28T04:15:34.4209440Z web_instance_id = "i-0b0cee1b493c8d1b5"
+2026-11-28T04:15:34.4209750Z web_public_ip = "13.223.184.28"
+2026-11-28T04:15:34.4210079Z web_url = "http://13.223.184.28/"
+2026-11-28T04:15:34.4369472Z ##[group]Run terraform output
+2026-11-28T04:15:34.4370043Z [36;1mterraform output[0m
+2026-11-28T04:15:34.4417478Z shell: /usr/bin/bash -e {0}
+2026-11-28T04:15:34.4417927Z env:
+2026-11-28T04:15:34.4418314Z   AWS_DEFAULT_REGION: us-east-1
+2026-11-28T04:15:34.4418779Z   AWS_REGION: us-east-1
+2026-11-28T04:15:34.4419356Z   AWS_ACCESS_KEY_ID: ***
+2026-11-28T04:15:34.4420000Z   AWS_SECRET_ACCESS_KEY: ***
+2026-11-28T04:15:34.4426853Z   AWS_SESSION_TOKEN: ***
+2026-11-28T04:15:34.4427331Z ##[endgroup]
+2026-11-28T04:15:35.1732999Z application_parameter_arn = "arn:aws:ssm:us-east-1:928670087602:parameter/acs730/assignment1/application-secret"
+2026-11-28T04:15:35.1734426Z cpu_alarm_name = "acs730-a1-staging-ktalwar3-high-cpu"
+2026-11-28T04:15:35.1735310Z vpc_id = "vpc-0fa7826790f581b52"
+2026-11-28T04:15:35.1735776Z web_instance_id = "i-0b0cee1b493c8d1b5"
+2026-11-28T04:15:35.1736247Z web_public_ip = "13.223.184.28"
+2026-11-28T04:15:35.1736556Z web_url = "http://13.223.184.28/"
+2026-11-28T04:15:35.1879875Z Post job cleanup.
+2026-11-28T04:15:35.3109557Z Post job cleanup.
+2026-11-28T04:15:35.4047513Z [command]/usr/bin/git version
+2026-11-28T04:15:35.4093863Z git version 2.56.1
+2026-11-28T04:15:35.4139861Z Temporarily overriding HOME='/home/runner/work/_temp/a815ec54-4a41-45cf-9317-7295308319e4' before making global git config changes
+2026-11-28T04:15:35.4141328Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-28T04:15:35.4145478Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/acs-730coursework/acs-730coursework
+2026-11-28T04:15:35.4191081Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-28T04:15:35.4230407Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-28T04:15:35.4572666Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-28T04:15:35.4610506Z http.https://github.com/.extraheader
+2026-11-28T04:15:35.4612410Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-28T04:15:35.4642596Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-28T04:15:35.4969179Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-28T04:15:35.5020287Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-28T04:15:35.5460182Z Cleaning up orphan processes
+2026-11-28T04:15:35.5837039Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, aws-actions/configure-aws-credentials@v4, hashicorp/setup-terraform@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

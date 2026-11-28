@@ -1,0 +1,8 @@
+Terraform successfully read the application parameter in both staging and production plans.
+
+Name: /acs730/assignment1/application-secret
+Type: SecureString
+ARN: arn:aws:ssm:us-east-1:928670087602:parameter/acs730/assignment1/application-secret
+Value: not displayed or recorded
+
+Source: successful Terraform data.aws_ssm_parameter.application_secret reads in GitHub Actions run 46104702189. The parameter was created out of band; Terraform reads it through a data source.
