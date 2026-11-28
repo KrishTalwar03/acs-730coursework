@@ -22,3 +22,8 @@ output "cpu_alarm_name" {
   value       = module.web_stack.cpu_alarm_name
   description = "Dev CPU alarm name."
 }
+
+output "application_parameter_arn" {
+  value       = module.web_stack.application_parameter_arn
+  description = "ARN of the SSM application parameter read by Terraform."
+}
